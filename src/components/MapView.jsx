@@ -1,7 +1,9 @@
+import { useEffect } from 'react'
 import { divIcon } from 'leaflet'
-import { MapContainer, Marker, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet'
 
 const lavapiesCenter = [40.4085, -3.7007]
+const selectedZoom = 17
 
 const createMarkerIcon = (isSelected) =>
   divIcon({
@@ -19,7 +21,23 @@ const createMarkerIcon = (isSelected) =>
     iconAnchor: [14, 14],
   })
 
-function MapView({ points, selectedPointId, onSelectPoint }) {
+function CenterOnPoint({ point }) {
+  const map = useMap()
+
+  useEffect(() => {
+    if (!point) {
+      return
+    }
+
+    map.flyTo([point.lat, point.lng], selectedZoom, {
+      duration: 0.8,
+    })
+  }, [map, point])
+
+  return null
+}
+
+function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
   return (
     <div className="map-card">
       <MapContainer
@@ -34,6 +52,8 @@ function MapView({ points, selectedPointId, onSelectPoint }) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+        <CenterOnPoint point={selectedPoint} />
 
         {points.map((point) => (
           <Marker

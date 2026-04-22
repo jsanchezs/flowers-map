@@ -1,16 +1,52 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import AudioPlayer from './components/AudioPlayer'
 import LocationPanel from './components/LocationPanel'
 import MapView from './components/MapView'
 import soundPoints from './data/soundPoints'
 
+function getPointIdFromUrl() {
+  const params = new URLSearchParams(window.location.search)
+  return params.get('p')
+}
+
+function getValidPointId(pointId) {
+  return soundPoints.some((point) => point.id === pointId) ? pointId : null
+}
+
 function App() {
-  const [selectedPointId, setSelectedPointId] = useState(soundPoints[0]?.id ?? null)
+  const [selectedPointId, setSelectedPointId] = useState(() => {
+    const pointIdFromUrl = getValidPointId(getPointIdFromUrl())
+    return pointIdFromUrl ?? soundPoints[0]?.id ?? null
+  })
 
   const selectedPoint = useMemo(
     () => soundPoints.find((point) => point.id === selectedPointId) ?? null,
     [selectedPointId],
   )
+
+  useEffect(() => {
+    const nextUrl = new URL(window.location.href)
+
+    if (selectedPointId) {
+      nextUrl.searchParams.set('p', selectedPointId)
+    } else {
+      nextUrl.searchParams.delete('p')
+    }
+
+    window.history.replaceState({}, '', nextUrl)
+  }, [selectedPointId])
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setSelectedPointId(getValidPointId(getPointIdFromUrl()))
+    }
+
+    window.addEventListener('popstate', handlePopState)
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+    }
+  }, [])
 
   return (
     <main className="app-shell">
@@ -28,6 +64,7 @@ function App() {
       <section className="map-layout" aria-label="Mapa sonoro de Lavapiés">
         <MapView
           points={soundPoints}
+          selectedPoint={selectedPoint}
           selectedPointId={selectedPointId}
           onSelectPoint={setSelectedPointId}
         />
