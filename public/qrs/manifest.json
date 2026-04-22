@@ -1,0 +1,32 @@
+[
+  {
+    "id": "plaza-lavapies",
+    "title": "Plaza de Lavapiés",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=plaza-lavapies",
+    "qrFile": "public/qrs/plaza-lavapies.svg"
+  },
+  {
+    "id": "argumosa",
+    "title": "Calle Argumosa",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=argumosa",
+    "qrFile": "public/qrs/argumosa.svg"
+  },
+  {
+    "id": "tabacalera",
+    "title": "La Tabacalera",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=tabacalera",
+    "qrFile": "public/qrs/tabacalera.svg"
+  },
+  {
+    "id": "embajadores",
+    "title": "Glorieta de Embajadores",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=embajadores",
+    "qrFile": "public/qrs/embajadores.svg"
+  },
+  {
+    "id": "reina-sofia",
+    "title": "Entorno de Reina Sofía",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=reina-sofia",
+    "qrFile": "public/qrs/reina-sofia.svg"
+  }
+]

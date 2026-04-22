@@ -27,6 +27,14 @@ npm run build
 npm run deploy
 ```
 
+## QR por punto
+
+```bash
+npm run generate:qrs
+```
+
+Esto genera un `SVG` por punto en `public/qrs/`, con la flor en el centro y la URL profunda del lugar.
+
 ## Datos
 
 Los puntos sonoros de ejemplo están en `src/data/soundPoints.js`.
