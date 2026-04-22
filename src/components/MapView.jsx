@@ -6,9 +6,17 @@ const lavapiesCenter = [40.4085, -3.7007]
 const createMarkerIcon = (isSelected) =>
   divIcon({
     className: 'sound-marker-wrapper',
-    html: `<span class="sound-marker${isSelected ? ' is-selected' : ''}"></span>`,
-    iconSize: [20, 20],
-    iconAnchor: [10, 10],
+    html: `
+      <span class="sound-marker${isSelected ? ' is-selected' : ''}">
+        <span class="petal petal-top"></span>
+        <span class="petal petal-right"></span>
+        <span class="petal petal-bottom"></span>
+        <span class="petal petal-left"></span>
+        <span class="flower-core"></span>
+      </span>
+    `,
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
   })
 
 function MapView({ points, selectedPointId, onSelectPoint }) {
