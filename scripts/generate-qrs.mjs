@@ -12,9 +12,26 @@ function buildPointUrl(pointId) {
   return url.toString()
 }
 
-function buildLogoMarkup() {
+function getQrViewBoxSize(svg) {
+  const viewBoxMatch = svg.match(/viewBox="([^"]+)"/)
+
+  if (!viewBoxMatch) {
+    throw new Error('QR SVG has no viewBox')
+  }
+
+  const [, viewBox] = viewBoxMatch
+  const [, , width, height] = viewBox.split(/\s+/).map(Number)
+
+  return Math.min(width, height)
+}
+
+function buildCenteredLogoMarkup(qrSize) {
+  const logoSize = qrSize * 0.3
+  const scale = logoSize / 128
+  const center = qrSize / 2
+
   return [
-    '<g transform="translate(192 192)">',
+    `<g transform="translate(${center} ${center}) scale(${scale}) translate(-64 -64)">`,
     '  <circle cx="64" cy="64" r="60" fill="#FFFFFF"/>',
     '  <circle cx="64" cy="64" r="56" fill="#FFF9F2"/>',
     '  <path d="M64 16c14 0 24 11.4 24 25.4 0 7.8-3.2 14.4-8.3 18.7C74.8 64 69.6 66 64 66s-10.8-2-15.7-5.9C43.2 55.8 40 49.2 40 41.4 40 27.4 50 16 64 16Z" fill="#D76657" stroke="#FFF9F2" stroke-width="6"/>',
@@ -28,7 +45,8 @@ function buildLogoMarkup() {
 }
 
 function injectLogo(svg) {
-  return svg.replace('</svg>', `${buildLogoMarkup()}</svg>`)
+  const qrSize = getQrViewBoxSize(svg)
+  return svg.replace('</svg>', `${buildCenteredLogoMarkup(qrSize)}</svg>`)
 }
 
 async function main() {
