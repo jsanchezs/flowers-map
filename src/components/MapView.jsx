@@ -1,9 +1,41 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { divIcon } from 'leaflet'
-import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet'
+import { GeoJSON, MapContainer, Marker, useMap } from 'react-leaflet'
 
 const lavapiesCenter = [40.4085, -3.7007]
 const selectedZoom = 17
+
+const roadWeights = {
+  primary: 9,
+  secondary: 8,
+  tertiary: 7,
+  residential: 5,
+  pedestrian: 6,
+  living_street: 5,
+  service: 3,
+  footway: 2,
+  path: 2,
+}
+
+const mapFeatureStyle = (feature) => {
+  if (feature.properties.kind === 'building') {
+    return {
+      color: '#df777f',
+      fillColor: '#e9828b',
+      fillOpacity: 0.48,
+      opacity: 0.2,
+      weight: 1,
+    }
+  }
+
+  return {
+    color: '#fffafa',
+    opacity: 0.96,
+    weight: roadWeights[feature.properties.highway] ?? 4,
+    lineCap: 'round',
+    lineJoin: 'round',
+  }
+}
 
 const createMarkerIcon = (isSelected) =>
   divIcon({
@@ -37,7 +69,38 @@ function CenterOnPoint({ point }) {
   return null
 }
 
+function useLavapiesGeometry() {
+  const [geometry, setGeometry] = useState(null)
+
+  useEffect(() => {
+    const controller = new AbortController()
+
+    fetch(`${import.meta.env.BASE_URL}lavapies-map.geojson`, {
+      signal: controller.signal,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Map geometry request failed: ${response.status}`)
+        }
+
+        return response.json()
+      })
+      .then(setGeometry)
+      .catch((error) => {
+        if (error.name !== 'AbortError') {
+          console.error(error)
+        }
+      })
+
+    return () => controller.abort()
+  }, [])
+
+  return geometry
+}
+
 function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
+  const geometry = useLavapiesGeometry()
+
   return (
     <div className="map-card">
       <MapContainer
@@ -48,10 +111,7 @@ function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
         scrollWheelZoom
         className="sound-map"
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        {geometry ? <GeoJSON data={geometry} style={mapFeatureStyle} /> : null}
 
         <CenterOnPoint point={selectedPoint} />
 
@@ -66,6 +126,8 @@ function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
           />
         ))}
       </MapContainer>
+
+      <div className="map-tint" aria-hidden="true" />
 
       <div className="map-hint">
         <span className="map-hint-dot" />
