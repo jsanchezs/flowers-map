@@ -132,7 +132,11 @@ h2 {
   height: 70svh;
   min-height: 31rem;
   width: 100%;
-  filter: saturate(0.85) contrast(0.98);
+  background: #f7c5c7;
+}
+
+.sound-map .leaflet-tile-pane {
+  filter: invert(83%) sepia(14%) saturate(1115%) hue-rotate(307deg) brightness(102%) contrast(91%);
 }
 
 .map-hint {
