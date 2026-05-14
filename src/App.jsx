@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import AudioPlayer from './components/AudioPlayer'
+import ComingSoonView from './components/ComingSoonView'
 import LocationPanel from './components/LocationPanel'
 import MapView from './components/MapView'
 import soundPoints from './data/soundPoints'
@@ -13,7 +14,17 @@ function getValidPointId(pointId) {
   return soundPoints.some((point) => point.id === pointId) ? pointId : null
 }
 
+function getPreviewTokenFromUrl() {
+  const params = new URLSearchParams(window.location.search)
+  return params.get('preview')
+}
+
 function App() {
+  const [launchState, setLaunchState] = useState({
+    isLoading: true,
+    isLive: false,
+    message: 'Recopilando historias...',
+  })
   const [selectedPointId, setSelectedPointId] = useState(() => {
     const pointIdFromUrl = getValidPointId(getPointIdFromUrl())
     return pointIdFromUrl ?? soundPoints[0]?.id ?? null
@@ -47,6 +58,55 @@ function App() {
       window.removeEventListener('popstate', handlePopState)
     }
   }, [])
+
+  useEffect(() => {
+    let isMounted = true
+
+    const loadLaunchState = async () => {
+      try {
+        const response = await fetch('./status.json', { cache: 'no-store' })
+        const status = response.ok ? await response.json() : null
+        const mode = status?.mode === 'live' ? 'live' : 'coming_soon'
+        const previewToken = typeof status?.previewToken === 'string' ? status.previewToken : ''
+        const previewFromUrl = getPreviewTokenFromUrl()
+        const hasPreviewAccess = previewToken && previewFromUrl === previewToken
+
+        if (!isMounted) {
+          return
+        }
+
+        setLaunchState({
+          isLoading: false,
+          isLive: mode === 'live' || hasPreviewAccess,
+          message: typeof status?.message === 'string' ? status.message : 'Recopilando historias...',
+        })
+      } catch {
+        if (!isMounted) {
+          return
+        }
+
+        setLaunchState({
+          isLoading: false,
+          isLive: false,
+          message: 'Recopilando historias...',
+        })
+      }
+    }
+
+    loadLaunchState()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  if (launchState.isLoading) {
+    return null
+  }
+
+  if (!launchState.isLive) {
+    return <ComingSoonView message={launchState.message} />
+  }
 
   return (
     <main className="app-shell">

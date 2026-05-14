@@ -68,6 +68,28 @@ a {
   padding: 1rem;
 }
 
+.coming-soon-shell {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.coming-soon-card {
+  width: min(40rem, 100%);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border: 1px solid var(--panel-border);
+  border-radius: 1.5rem;
+  background: var(--panel-bg);
+  box-shadow: var(--shadow);
+}
+
+.coming-soon-message {
+  margin-top: 0.85rem;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+  color: var(--text-soft);
+}
+
 .hero-panel {
   padding: 1rem 1rem 0.25rem;
 }

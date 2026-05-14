@@ -27,6 +27,33 @@ npm run build
 npm run deploy
 ```
 
+## Modo Lanzamiento (QR unico)
+
+La URL principal puede mostrar una pantalla temporal o el mapa, sin cambiar el QR.
+Guia completa: `docs/launch-mode.md`.
+
+Configura `public/status.json`:
+
+```json
+{
+  "mode": "coming_soon",
+  "message": "Recopilando historias...",
+  "previewToken": "token-largo-y-privado"
+}
+```
+
+- `mode: "coming_soon"`: el publico ve el mensaje de espera.
+- `mode: "live"`: el publico ve el mapa.
+- `previewToken`: permite ver el mapa en produccion con `?preview=<token>` aunque siga en `coming_soon`.
+
+Ejemplo de preview privada:
+
+`https://<usuario>.github.io/flowers-map/?preview=token-largo-y-privado`
+
+Cuando quieras lanzar:
+1. Cambia `mode` a `"live"` en `public/status.json`.
+2. Ejecuta `npm run deploy`.
+
 ## QR por punto
 
 ```bash
