@@ -109,8 +109,8 @@ function App() {
     <main className="app-shell">
       <header className="hero-panel">
         <div>
-          <p className="eyebrow">Mapa sonoro</p>
-          <h1>Flores de Lavapiés</h1>
+          <p className="eyebrow">Lou Romera</p>
+          <h1>Cicatrizar el mapa</h1>
         </div>
         <p className="hero-copy">
           Recorre Lavapiés a través de pequeñas piezas de audio situadas sobre el mapa.
