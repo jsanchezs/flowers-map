@@ -23,7 +23,6 @@ function App() {
   const [launchState, setLaunchState] = useState({
     isLoading: true,
     isLive: false,
-    message: 'Recopilando historias...',
   })
   const [selectedPointId, setSelectedPointId] = useState(() => {
     const pointIdFromUrl = getValidPointId(getPointIdFromUrl())
@@ -78,7 +77,6 @@ function App() {
         setLaunchState({
           isLoading: false,
           isLive: mode === 'live' || hasPreviewAccess,
-          message: typeof status?.message === 'string' ? status.message : 'Recopilando historias...',
         })
       } catch {
         if (!isMounted) {
@@ -88,7 +86,6 @@ function App() {
         setLaunchState({
           isLoading: false,
           isLive: false,
-          message: 'Recopilando historias...',
         })
       }
     }
@@ -105,7 +102,7 @@ function App() {
   }
 
   if (!launchState.isLive) {
-    return <ComingSoonView message={launchState.message} />
+    return <ComingSoonView />
   }
 
   return (
