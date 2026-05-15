@@ -29,6 +29,6 @@ jobs:
         run: npm run build
 
       - name: Deploy to gh-pages
-        run: npx gh-pages -d dist -u "github-actions-bot <github-actions[bot]@users.noreply.github.com>"
+        run: npx gh-pages -d dist -u "github-actions <github-actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
