@@ -1,32 +1,38 @@
 [
   {
-    "id": "plaza-lavapies",
-    "title": "Plaza de Lavapiés",
-    "url": "https://jsanchezs.github.io/flowers-map/?p=plaza-lavapies",
-    "qrFile": "public/qrs/plaza-lavapies.svg"
+    "id": "fourquet-10",
+    "title": "Calle Doctor Fourquet 10",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=fourquet-10",
+    "qrFile": "public/qrs/fourquet-10.svg"
   },
   {
-    "id": "argumosa",
-    "title": "Calle Argumosa",
-    "url": "https://jsanchezs.github.io/flowers-map/?p=argumosa",
-    "qrFile": "public/qrs/argumosa.svg"
+    "id": "hostal-xucar",
+    "title": "Hostal Xucar",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=hostal-xucar",
+    "qrFile": "public/qrs/hostal-xucar.svg"
   },
   {
-    "id": "tabacalera",
-    "title": "La Tabacalera",
-    "url": "https://jsanchezs.github.io/flowers-map/?p=tabacalera",
-    "qrFile": "public/qrs/tabacalera.svg"
+    "id": "plaza-nelson-mandela",
+    "title": "Plaza de Nelson Mandela",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=plaza-nelson-mandela",
+    "qrFile": "public/qrs/plaza-nelson-mandela.svg"
   },
   {
-    "id": "embajadores",
-    "title": "Glorieta de Embajadores",
-    "url": "https://jsanchezs.github.io/flowers-map/?p=embajadores",
-    "qrFile": "public/qrs/embajadores.svg"
+    "id": "primavera-1",
+    "title": "Calle Primavera 1",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=primavera-1",
+    "qrFile": "public/qrs/primavera-1.svg"
   },
   {
-    "id": "reina-sofia",
-    "title": "Entorno de Reina Sofía",
-    "url": "https://jsanchezs.github.io/flowers-map/?p=reina-sofia",
-    "qrFile": "public/qrs/reina-sofia.svg"
+    "id": "san-lorenzo",
+    "title": "Parroquia de San Lorenzo",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=san-lorenzo",
+    "qrFile": "public/qrs/san-lorenzo.svg"
+  },
+  {
+    "id": "benteveo",
+    "title": "Benteveo",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=benteveo",
+    "qrFile": "public/qrs/benteveo.svg"
   }
 ]
