@@ -23,6 +23,13 @@ npm run build
 
 ## Deploy
 
+El deploy se ejecuta automaticamente al hacer push o merge en `master`.
+El workflow `.github/workflows/deploy.yml` instala dependencias con `npm ci`, ejecuta `npm run build` y publica `dist/` en la rama `gh-pages`.
+
+Para lanzar manualmente el mismo proceso desde GitHub, usa `Actions > Deploy to GitHub Pages > Run workflow`.
+
+Si necesitas desplegar desde tu maquina:
+
 ```bash
 npm run deploy
 ```
@@ -52,7 +59,7 @@ Ejemplo de preview privada:
 
 Cuando quieras lanzar:
 1. Cambia `mode` a `"live"` en `public/status.json`.
-2. Ejecuta `npm run deploy`.
+2. Haz merge o push a `master` para que GitHub Actions publique el cambio.
 
 ## QR por punto
 
