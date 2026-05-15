@@ -25,8 +25,7 @@ function App() {
     isLive: false,
   })
   const [selectedPointId, setSelectedPointId] = useState(() => {
-    const pointIdFromUrl = getValidPointId(getPointIdFromUrl())
-    return pointIdFromUrl ?? soundPoints[0]?.id ?? null
+    return getValidPointId(getPointIdFromUrl())
   })
 
   const selectedPoint = useMemo(
