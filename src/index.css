@@ -375,7 +375,17 @@ h2 {
 }
 
 .leaflet-control-attribution {
-  font-size: 0.7rem;
+  max-width: min(16rem, calc(100vw - 4rem));
+  overflow: hidden;
+  font-size: 0.56rem;
+  line-height: 1.15;
+  opacity: 0.72;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaflet-bottom {
+  z-index: 600;
 }
 
 @media (min-width: 900px) {
