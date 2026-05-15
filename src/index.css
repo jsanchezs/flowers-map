@@ -169,8 +169,6 @@ h2 {
 }
 
 .hero-copy,
-.panel-address,
-.panel-description,
 .panel-empty,
 .map-hint p,
 .time-row,
@@ -319,28 +317,11 @@ h2 {
   box-shadow: var(--shadow);
 }
 
-.panel-handle {
-  width: 3rem;
-  height: 0.28rem;
-  margin: 0 auto 0.95rem;
-  border-radius: 999px;
-  background: rgba(73, 53, 39, 0.2);
-}
-
 .panel-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
-}
-
-.panel-address,
-.panel-description {
-  margin-top: 0.85rem;
-}
-
-.panel-address {
-  font-size: 0.92rem;
 }
 
 .close-button,
@@ -435,7 +416,4 @@ h2 {
     justify-content: flex-start;
   }
 
-  .panel-handle {
-    display: none;
-  }
 }
