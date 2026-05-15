@@ -28,6 +28,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Configure deploy remote
+        run: git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Deploy to gh-pages
         run: npx gh-pages -d dist -u "github-actions <github-actions@github.com>"
         env:
