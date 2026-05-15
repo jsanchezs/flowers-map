@@ -1,5 +1,7 @@
 const storyFormUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLSeJAj4twTrxYgbtCUhQkp0emHjH3rt1AewG-lSV5rRPPehomQ/viewform?usp=header'
+const instagramUrl =
+  'https://www.instagram.com/louromera?igsh=MXhjdHV3NGdhamR2cw%3D%3D&utm_source=qr'
 
 function ComingSoonView() {
   return (
@@ -14,6 +16,12 @@ function ComingSoonView() {
           manda tu historia
         </a>
         <p className="coming-soon-note">audio o texto ;)</p>
+        <p className="coming-soon-instagram">
+          Sigue el proceso en mi instagram{' '}
+          <a href={instagramUrl} rel="noreferrer">
+            @louromera
+          </a>
+        </p>
       </section>
     </main>
   )

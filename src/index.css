@@ -137,6 +137,21 @@ a {
   line-height: 1.2;
 }
 
+.coming-soon-instagram {
+  max-width: 18rem;
+  margin: 2.25rem 0 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.coming-soon-instagram a {
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
 .hero-panel {
   padding: 1rem 1rem 0.25rem;
 }
