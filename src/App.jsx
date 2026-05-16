@@ -153,7 +153,9 @@ function App() {
           <a className="instagram-button" href={instagramUrl} rel="noreferrer">
             visita mi perfil de instagram
           </a>
-          <p className="instagram-handle">@louromera</p>
+          <a className="instagram-handle" href={instagramUrl} rel="noreferrer">
+            @louromera
+          </a>
         </section>
 
         <p className="project-credit">Desarrollado con amor por Jesús, amén</p>
