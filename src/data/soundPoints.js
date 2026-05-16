@@ -56,6 +56,24 @@ const soundPoints = [
     lng: -3.6981253,
     audioUrl: audioPath('Benteveo.m4a'),
   },
+  {
+    id: 'sombrerete',
+    title: 'Calle Sombrerete',
+    address: 'Calle del Sombrerete, Centro, 28012 Madrid',
+    description: 'Una escucha en la Calle del Sombrerete, dentro del recorrido de Lavapiés.',
+    lat: 40.4083389,
+    lng: -3.7027083,
+    audioUrl: audioPath('Sombrerete.m4a'),
+  },
+  {
+    id: 'farmacia-de-la-serna',
+    title: 'Farmacia de la Serna',
+    address: 'Calle de Santa Isabel, 7, Centro, 28012 Madrid',
+    description: 'Escucha situada junto a la farmacia de Santa Isabel, cerca de Antón Martín.',
+    lat: 40.4111939,
+    lng: -3.698511,
+    audioUrl: audioPath('Calle Santa Isabel Farmacia de la Serna.m4a'),
+  },
 ]
 
 export default soundPoints

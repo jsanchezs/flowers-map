@@ -34,5 +34,17 @@
     "title": "Benteveo",
     "url": "https://jsanchezs.github.io/flowers-map/?p=benteveo",
     "qrFile": "public/qrs/benteveo.svg"
+  },
+  {
+    "id": "sombrerete",
+    "title": "Calle Sombrerete",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=sombrerete",
+    "qrFile": "public/qrs/sombrerete.svg"
+  },
+  {
+    "id": "farmacia-de-la-serna",
+    "title": "Farmacia de la Serna",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=farmacia-de-la-serna",
+    "qrFile": "public/qrs/farmacia-de-la-serna.svg"
   }
 ]
