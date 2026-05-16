@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { divIcon } from 'leaflet'
 import { AttributionControl, MapContainer, Marker, TileLayer, useMap } from 'react-leaflet'
+import { fallbackFlowerImageUrl, flowerImageUrl } from '../config/links'
 
 const lavapiesCenter = [40.4085, -3.7007]
 const selectedZoom = 17
@@ -10,15 +11,11 @@ const createMarkerIcon = (isSelected) =>
     className: 'sound-marker-wrapper',
     html: `
       <span class="sound-marker${isSelected ? ' is-selected' : ''}">
-        <span class="petal petal-top"></span>
-        <span class="petal petal-right"></span>
-        <span class="petal petal-bottom"></span>
-        <span class="petal petal-left"></span>
-        <span class="flower-core"></span>
+        <img src="${flowerImageUrl}" alt="" onerror="this.onerror=null;this.src='${fallbackFlowerImageUrl}'" />
       </span>
     `,
-    iconSize: [28, 28],
-    iconAnchor: [14, 14],
+    iconSize: [42, 42],
+    iconAnchor: [21, 21],
   })
 
 function CenterOnPoint({ point }) {
@@ -39,7 +36,7 @@ function CenterOnPoint({ point }) {
 
 function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
   return (
-    <div className="map-card">
+    <div className="map-stage">
       <MapContainer
         center={lavapiesCenter}
         zoom={15}
@@ -70,10 +67,6 @@ function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
         ))}
       </MapContainer>
 
-      <div className="map-hint">
-        <span className="map-hint-dot" />
-        <p>Toca un punto para abrir su audio.</p>
-      </div>
     </div>
   )
 }

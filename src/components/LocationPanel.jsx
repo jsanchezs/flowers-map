@@ -5,15 +5,16 @@ function LocationPanel({ point, onClose, children }) {
         <>
           <div className="panel-header">
             <div>
-              <p className="panel-label">Cicatriz</p>
-              <h2>{point.title}</h2>
+              <p className="panel-label">cicatriz</p>
+              <h2>“{point.title}”</h2>
             </div>
 
             <button type="button" className="close-button" onClick={onClose}>
-              Cerrar
+              cerrar
             </button>
           </div>
 
+          <p className="panel-description">{point.description}</p>
           {children}
         </>
       ) : (

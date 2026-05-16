@@ -3,6 +3,7 @@ import AudioPlayer from './components/AudioPlayer'
 import ComingSoonView from './components/ComingSoonView'
 import LocationPanel from './components/LocationPanel'
 import MapView from './components/MapView'
+import { fallbackFlowerImageUrl, flowerImageUrl, instagramUrl, storyFormUrl } from './config/links'
 import soundPoints from './data/soundPoints'
 
 function getPointIdFromUrl() {
@@ -20,6 +21,7 @@ function getPreviewTokenFromUrl() {
 }
 
 function App() {
+  const [activeScreen, setActiveScreen] = useState('map')
   const [launchState, setLaunchState] = useState({
     isLoading: true,
     isLive: false,
@@ -104,34 +106,99 @@ function App() {
     return <ComingSoonView />
   }
 
+  if (activeScreen === 'project') {
+    return (
+      <main className="project-screen">
+        <button type="button" className="project-close" onClick={() => setActiveScreen('map')}>
+          cerrar
+        </button>
+
+        <section className="project-content" aria-label="sobre el proyecto">
+          <h1>sobre el proyecto</h1>
+
+          <div className="project-block">
+            <p>
+              Cicatrizar el mapa nace como un proyecto personal con la necesidad de elaborar una
+              cartografía del dolor en el barrio de Lavapiés para reconquistarlo, para sentirlo mío.
+            </p>
+            <p>
+              Ahora se expande para abarcar todas las heridas, no solo las mías, también de quien
+              quiera participar y cree necesaria dicha reparación. Hacerse con esos espacios.
+            </p>
+            <p>
+              Por ello la flor.llama porque dicha reparación requiere TERNURA y la ACCIÓN DE
+              PRENDER fuego a ese hilo de memoria.
+            </p>
+          </div>
+
+          <img
+            className="project-flower"
+            src={flowerImageUrl}
+            alt=""
+            onError={(event) => {
+              event.currentTarget.src = fallbackFlowerImageUrl
+            }}
+          />
+
+          <div className="project-block">
+            <h2>HOLA, soy Lou Romera</h2>
+            <p>
+              Artista multidisciplinar. Me muevo entre el arte plástico, la instalación y la
+              interpretación. Siempre acabo llevando mis proyectos hacia lo colectivo porque me
+              gusta ver al otro, escucharle, conocerle y si puedo, regalarle un espacio en el que
+              pueda expresarse.
+            </p>
+          </div>
+
+          <a className="instagram-button" href={instagramUrl} rel="noreferrer">
+            visita mi perfil de instagram
+          </a>
+          <p className="instagram-handle">@louromera</p>
+        </section>
+
+        <p className="project-credit">Desarrollado con amor por Jesús, amén</p>
+      </main>
+    )
+  }
+
   return (
     <main className="app-shell">
+      <MapView
+        points={soundPoints}
+        selectedPoint={selectedPoint}
+        selectedPointId={selectedPointId}
+        onSelectPoint={setSelectedPointId}
+      />
+
       <header className="hero-panel">
-        <div>
-          <p className="eyebrow">Lou Romera</p>
-          <h1>Cicatrizar el mapa</h1>
+        <div className="hero-heading">
+          <div>
+            <h1>cicatrizar el mapa</h1>
+            <p className="hero-copy">heridas emocionales anónimas situadas en Lavapiés</p>
+            <p className="hero-label">MAPA SONORO</p>
+          </div>
+          <button type="button" className="project-link" onClick={() => setActiveScreen('project')}>
+            conoce el proyecto
+          </button>
         </div>
-        <p className="hero-copy">
-          Recorre Lavapiés a través de pequeñas piezas de audio situadas sobre el mapa.
-          Toca un punto para abrir su escucha.
-        </p>
+
+        <div className="map-hint" aria-hidden={selectedPoint ? 'true' : 'false'}>
+          <p>Toca un punto para abrir su audio.</p>
+        </div>
       </header>
 
-      <section className="map-layout" aria-label="Mapa sonoro de Lavapiés">
-        <MapView
-          points={soundPoints}
-          selectedPoint={selectedPoint}
-          selectedPointId={selectedPointId}
-          onSelectPoint={setSelectedPointId}
-        />
+      {selectedPoint ? null : (
+        <a className="hero-cta" href={storyFormUrl}>
+          dejar mi recuerdo
+        </a>
+      )}
 
-        <LocationPanel
-          point={selectedPoint}
-          onClose={() => setSelectedPointId(null)}
-        >
-          {selectedPoint ? <AudioPlayer key={selectedPoint.id} src={selectedPoint.audioUrl} /> : null}
-        </LocationPanel>
-      </section>
+      <LocationPanel
+        point={selectedPoint}
+        onClose={() => setSelectedPointId(null)}
+      >
+        {selectedPoint ? <AudioPlayer key={selectedPoint.id} src={selectedPoint.audioUrl} /> : null}
+      </LocationPanel>
     </main>
   )
 }

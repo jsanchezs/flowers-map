@@ -97,7 +97,7 @@ function AudioPlayer({ src }) {
       <audio ref={audioRef} preload="metadata" controlsList="nodownload noplaybackrate" src={src} />
 
       <button type="button" className="play-button" onClick={togglePlayback}>
-        {isPlaying ? 'Pausa' : 'Escuchar'}
+        {isPlaying ? 'pausar' : 'reproducir'}
       </button>
 
       <div className="progress-block">
