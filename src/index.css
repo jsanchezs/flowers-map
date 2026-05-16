@@ -117,7 +117,7 @@ a {
 }
 
 .coming-soon-cta {
-  display: inline-flex;
+  display: flex;
   min-height: 4rem;
   align-items: center;
   justify-content: center;
@@ -276,7 +276,7 @@ p {
 .map-hint {
   position: relative;
   z-index: 710;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: min(22rem, calc(100vw - 3rem));
@@ -518,7 +518,7 @@ p {
 
 @media (min-width: 900px) {
   .app-shell {
-    width: min(100vw, 34rem);
+    width: 100vw;
     margin: 0 auto;
   }
 
@@ -546,13 +546,15 @@ p {
   }
 
   .location-panel {
-    left: 1.8rem;
-    right: 1.8rem;
+    left: 50%;
+    right: auto;
+    width: min(36rem, calc(100vw - 4rem));
     bottom: 1.75rem;
+    transform: translateX(-50%);
   }
 
   .project-screen {
-    width: min(100vw, 34rem);
+    width: 100vw;
     margin: 0 auto;
   }
 
