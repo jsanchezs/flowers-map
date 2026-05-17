@@ -46,5 +46,17 @@
     "title": "Farmacia de la Serna",
     "url": "https://jsanchezs.github.io/flowers-map/?p=farmacia-de-la-serna",
     "qrFile": "public/qrs/farmacia-de-la-serna.svg"
+  },
+  {
+    "id": "san-ildefonso-10",
+    "title": "Calle San Ildefonso 10",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=san-ildefonso-10",
+    "qrFile": "public/qrs/san-ildefonso-10.svg"
+  },
+  {
+    "id": "meson-de-paredes-23",
+    "title": "Calle Mesón de Paredes 23",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=meson-de-paredes-23",
+    "qrFile": "public/qrs/meson-de-paredes-23.svg"
   }
 ]
