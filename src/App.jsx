@@ -190,9 +190,12 @@ function App() {
       </header>
 
       {selectedPoint ? null : (
-        <a className="hero-cta" href={storyFormUrl}>
-          dejar mi recuerdo
-        </a>
+        <div className="memory-cta-block">
+          <p>Aún puedes mandar tu cicatriz</p>
+          <a className="hero-cta" href={storyFormUrl}>
+            dejar mi recuerdo
+          </a>
+        </div>
       )}
 
       <LocationPanel
