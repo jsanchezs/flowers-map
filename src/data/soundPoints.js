@@ -74,6 +74,24 @@ const soundPoints = [
     lng: -3.698511,
     audioUrl: audioPath('Calle Santa Isabel Farmacia de la Serna.m4a'),
   },
+  {
+    id: 'san-ildefonso-10',
+    title: 'Calle San Ildefonso 10',
+    address: 'Calle de San Ildefonso, 10, Centro, 28012 Madrid',
+    description: 'Una escucha en la Calle de San Ildefonso, cerca de Santa Isabel.',
+    lat: 40.411134,
+    lng: -3.697586,
+    audioUrl: audioPath('San Ildefonso, 10.m4a'),
+  },
+  {
+    id: 'meson-de-paredes-23',
+    title: 'Calle Mesón de Paredes 23',
+    address: 'Calle del Mesón de Paredes, 23, Centro, 28012 Madrid',
+    description: 'Una parada en Mesón de Paredes, entre Tirso de Molina y Lavapiés.',
+    lat: 40.410273,
+    lng: -3.704652,
+    audioUrl: audioPath('Meson de Paredes 23.m4a'),
+  },
 ]
 
 export default soundPoints
