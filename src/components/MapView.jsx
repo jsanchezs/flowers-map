@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 import { divIcon } from 'leaflet'
 import { AttributionControl, MapContainer, Marker, TileLayer, useMap } from 'react-leaflet'
 import { fallbackFlowerImageUrl } from '../config/links'
@@ -13,8 +13,16 @@ const flowerMarkerUrls = [
   '/flowers/flor05.png',
 ]
 
-const getRandomFlowerMarkerUrl = () =>
-  flowerMarkerUrls[Math.floor(Math.random() * flowerMarkerUrls.length)]
+const getStableFlowerMarkerUrl = (point) => {
+  const markerKey = point.audioUrl || point.id
+  let hash = 0
+
+  for (let index = 0; index < markerKey.length; index += 1) {
+    hash = (hash * 31 + markerKey.charCodeAt(index)) >>> 0
+  }
+
+  return flowerMarkerUrls[hash % flowerMarkerUrls.length]
+}
 
 const createMarkerIcon = (isSelected, flowerMarkerUrl) =>
   divIcon({
@@ -45,12 +53,6 @@ function CenterOnPoint({ point }) {
 }
 
 function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
-  const flowerMarkerUrlsByPointId = useMemo(
-    () =>
-      Object.fromEntries(points.map((point) => [point.id, getRandomFlowerMarkerUrl()])),
-    [points],
-  )
-
   return (
     <div className="map-stage">
       <MapContainer
@@ -77,7 +79,7 @@ function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
             position={[point.lat, point.lng]}
             icon={createMarkerIcon(
               point.id === selectedPointId,
-              flowerMarkerUrlsByPointId[point.id] ?? flowerMarkerUrls[0],
+              getStableFlowerMarkerUrl(point),
             )}
             eventHandlers={{
               click: () => onSelectPoint(point.id),
