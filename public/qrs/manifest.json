@@ -58,5 +58,83 @@
     "title": "Calle Mesón de Paredes 23",
     "url": "https://jsanchezs.github.io/flowers-map/?p=meson-de-paredes-23",
     "qrFile": "public/qrs/meson-de-paredes-23.svg"
+  },
+  {
+    "id": "glorieta-argumosa",
+    "title": "Glorieta de la calle Argumosa",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=glorieta-argumosa",
+    "qrFile": "public/qrs/glorieta-argumosa.svg"
+  },
+  {
+    "id": "calle-salitre",
+    "title": "Calle Salitre",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=calle-salitre",
+    "qrFile": "public/qrs/calle-salitre.svg"
+  },
+  {
+    "id": "argumosa-22",
+    "title": "Calle Argumosa 22",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=argumosa-22",
+    "qrFile": "public/qrs/argumosa-22.svg"
+  },
+  {
+    "id": "lavapies-31-sani-sapori",
+    "title": "Calle Lavapiés 31",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=lavapies-31-sani-sapori",
+    "qrFile": "public/qrs/lavapies-31-sani-sapori.svg"
+  },
+  {
+    "id": "argumosa-23",
+    "title": "Calle Argumosa 23",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=argumosa-23",
+    "qrFile": "public/qrs/argumosa-23.svg"
+  },
+  {
+    "id": "casino-7",
+    "title": "Calle del Casino 7",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=casino-7",
+    "qrFile": "public/qrs/casino-7.svg"
+  },
+  {
+    "id": "plaza-lavapies-8",
+    "title": "Plaza de Lavapiés 8",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=plaza-lavapies-8",
+    "qrFile": "public/qrs/plaza-lavapies-8.svg"
+  },
+  {
+    "id": "santa-isabel-42-colegio",
+    "title": "Santa Isabel 42 colegio",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=santa-isabel-42-colegio",
+    "qrFile": "public/qrs/santa-isabel-42-colegio.svg"
+  },
+  {
+    "id": "santa-isabel-42",
+    "title": "Santa Isabel 42",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=santa-isabel-42",
+    "qrFile": "public/qrs/santa-isabel-42.svg"
+  },
+  {
+    "id": "atocha-70",
+    "title": "Atocha 70",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=atocha-70",
+    "qrFile": "public/qrs/atocha-70.svg"
+  },
+  {
+    "id": "santa-ines-35",
+    "title": "Santa Inés 35",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=santa-ines-35",
+    "qrFile": "public/qrs/santa-ines-35.svg"
+  },
+  {
+    "id": "fuente-santa-isabel-48",
+    "title": "Fuente Santa Isabel 48",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=fuente-santa-isabel-48",
+    "qrFile": "public/qrs/fuente-santa-isabel-48.svg"
+  },
+  {
+    "id": "esquina-casino-embajadores",
+    "title": "Esquina Casino con Embajadores",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=esquina-casino-embajadores",
+    "qrFile": "public/qrs/esquina-casino-embajadores.svg"
   }
 ]
