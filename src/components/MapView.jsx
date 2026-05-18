@@ -1,17 +1,27 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { divIcon } from 'leaflet'
 import { AttributionControl, MapContainer, Marker, TileLayer, useMap } from 'react-leaflet'
-import { fallbackFlowerImageUrl, flowerImageUrl } from '../config/links'
+import { fallbackFlowerImageUrl } from '../config/links'
 
 const lavapiesCenter = [40.4085, -3.7007]
 const selectedZoom = 17
+const flowerMarkerUrls = [
+  '/flowers/flor01.png',
+  '/flowers/flor02.png',
+  '/flowers/flor03.png',
+  '/flowers/flor04.png',
+  '/flowers/flor05.png',
+]
 
-const createMarkerIcon = (isSelected) =>
+const getRandomFlowerMarkerUrl = () =>
+  flowerMarkerUrls[Math.floor(Math.random() * flowerMarkerUrls.length)]
+
+const createMarkerIcon = (isSelected, flowerMarkerUrl) =>
   divIcon({
     className: 'sound-marker-wrapper',
     html: `
       <span class="sound-marker${isSelected ? ' is-selected' : ''}">
-        <img src="${flowerImageUrl}" alt="" onerror="this.onerror=null;this.src='${fallbackFlowerImageUrl}'" />
+        <img src="${flowerMarkerUrl}" alt="" onerror="this.onerror=null;this.src='${fallbackFlowerImageUrl}'" />
       </span>
     `,
     iconSize: [42, 42],
@@ -35,6 +45,12 @@ function CenterOnPoint({ point }) {
 }
 
 function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
+  const flowerMarkerUrlsByPointId = useMemo(
+    () =>
+      Object.fromEntries(points.map((point) => [point.id, getRandomFlowerMarkerUrl()])),
+    [points],
+  )
+
   return (
     <div className="map-stage">
       <MapContainer
@@ -59,7 +75,10 @@ function MapView({ points, selectedPoint, selectedPointId, onSelectPoint }) {
           <Marker
             key={point.id}
             position={[point.lat, point.lng]}
-            icon={createMarkerIcon(point.id === selectedPointId)}
+            icon={createMarkerIcon(
+              point.id === selectedPointId,
+              flowerMarkerUrlsByPointId[point.id] ?? flowerMarkerUrls[0],
+            )}
             eventHandlers={{
               click: () => onSelectPoint(point.id),
             }}
