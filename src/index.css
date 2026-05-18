@@ -371,7 +371,8 @@ p {
 
 .location-panel h2 {
   max-width: 20rem;
-  font-size: clamp(1.25rem, 5.4vw, 1.55rem);
+  font-size: clamp(1.15rem, 5vw, 1.4rem);
+  font-weight: 600;
   line-height: 1.18;
   letter-spacing: 0;
 }
@@ -497,7 +498,7 @@ p {
   display: block;
   width: 4.75rem;
   height: auto;
-  margin: 2.2rem 0 1.95rem auto;
+  margin: 0.55rem 0 0.45rem auto;
   filter: saturate(1.35) drop-shadow(0 0 8px rgba(255, 177, 194, 0.48));
 }
 
@@ -522,6 +523,7 @@ p {
 
 .instagram-handle {
   display: block;
+  margin-bottom: 2rem;
   text-decoration: none;
 }
 

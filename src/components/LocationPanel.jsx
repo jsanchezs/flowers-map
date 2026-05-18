@@ -14,7 +14,6 @@ function LocationPanel({ point, onClose, children }) {
             </button>
           </div>
 
-          <p className="panel-description">{point.description}</p>
           {children}
         </>
       ) : (
