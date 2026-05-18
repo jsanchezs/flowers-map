@@ -158,7 +158,11 @@ function App() {
           </a>
         </section>
 
-        <p className="project-credit">Desarrollado con amor por Jesús, amén</p>
+        <p className="project-credit">
+          Concepto y diseño: louromera
+          <br />
+          Desarrollo: Jesús Santamaría
+        </p>
       </main>
     )
   }
