@@ -301,7 +301,7 @@ p {
   padding: 0.65rem 0.95rem;
   color: #ffffff;
   background: rgba(255, 168, 190, 0.45);
-  font-size: clamp(1.1rem, 4.7vw, 1.45rem);
+  font-size: clamp(0.88rem, 3.2vw, 1rem);
   font-weight: 600;
   line-height: 1.2;
   text-align: center;
