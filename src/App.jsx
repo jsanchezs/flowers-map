@@ -185,7 +185,7 @@ function App() {
         </div>
 
         <div className="map-hint" aria-hidden={selectedPoint ? 'true' : 'false'}>
-          <p>Toca un punto para abrir su audio.</p>
+          <p>toca un punto para abrir su audio</p>
         </div>
       </header>
 
