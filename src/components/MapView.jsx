@@ -6,11 +6,11 @@ import { fallbackFlowerImageUrl } from '../config/links'
 const lavapiesCenter = [40.4085, -3.7007]
 const selectedZoom = 17
 const flowerMarkerUrls = [
-  '/flowers/flor01.png',
-  '/flowers/flor02.png',
-  '/flowers/flor03.png',
-  '/flowers/flor04.png',
-  '/flowers/flor05.png',
+  '/flowers/markers/flor01.webp',
+  '/flowers/markers/flor02.webp',
+  '/flowers/markers/flor03.webp',
+  '/flowers/markers/flor04.webp',
+  '/flowers/markers/flor05.webp',
 ]
 
 const getStableFlowerMarkerUrl = (point) => {
@@ -29,7 +29,7 @@ const createMarkerIcon = (isSelected, flowerMarkerUrl) =>
     className: 'sound-marker-wrapper',
     html: `
       <span class="sound-marker${isSelected ? ' is-selected' : ''}">
-        <img src="${flowerMarkerUrl}" alt="" onerror="this.onerror=null;this.src='${fallbackFlowerImageUrl}'" />
+        <img src="${flowerMarkerUrl}" alt="" decoding="async" onerror="this.onerror=null;this.src='${fallbackFlowerImageUrl}'" />
       </span>
     `,
     iconSize: [56, 50],
