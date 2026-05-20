@@ -32,8 +32,8 @@ const createMarkerIcon = (isSelected, flowerMarkerUrl) =>
         <img src="${flowerMarkerUrl}" alt="" onerror="this.onerror=null;this.src='${fallbackFlowerImageUrl}'" />
       </span>
     `,
-    iconSize: [42, 42],
-    iconAnchor: [21, 21],
+    iconSize: [56, 50],
+    iconAnchor: [28, 25],
   })
 
 function CenterOnPoint({ point }) {
