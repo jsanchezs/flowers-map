@@ -72,6 +72,18 @@
     "qrFile": "public/qrs/calle-salitre.svg"
   },
   {
+    "id": "calle-zurita",
+    "title": "Calle Zurita",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=calle-zurita",
+    "qrFile": "public/qrs/calle-zurita.svg"
+  },
+  {
+    "id": "esgrima-8",
+    "title": "Esgrima 8",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=esgrima-8",
+    "qrFile": "public/qrs/esgrima-8.svg"
+  },
+  {
     "id": "argumosa-22",
     "title": "Calle Argumosa 22",
     "url": "https://jsanchezs.github.io/flowers-map/?p=argumosa-22",
@@ -136,5 +148,11 @@
     "title": "Esquina Casino con Embajadores",
     "url": "https://jsanchezs.github.io/flowers-map/?p=esquina-casino-embajadores",
     "qrFile": "public/qrs/esquina-casino-embajadores.svg"
+  },
+  {
+    "id": "boqueron-la-falda",
+    "title": "Entre el bar Boquerón y La Falda",
+    "url": "https://jsanchezs.github.io/flowers-map/?p=boqueron-la-falda",
+    "qrFile": "public/qrs/boqueron-la-falda.svg"
   }
 ]
