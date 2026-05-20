@@ -97,8 +97,8 @@ const soundPoints = [
     title: 'Glorieta de la calle Argumosa',
     address: 'Glorieta de la calle Argumosa, Centro, 28012 Madrid',
     description: 'Una escucha en la glorieta de la calle Argumosa, junto a Lavapiés.',
-    lat: 40.4085,
-    lng: -3.7005222,
+    lat: 40.4079388,
+    lng: -3.6992944,
     audioUrl: audioPath('glorieta Argumosa.m4a'),
   },
   {
@@ -109,6 +109,24 @@ const soundPoints = [
     lat: 40.40915,
     lng: -3.6988569,
     audioUrl: audioPath('Calle Salitre.m4a'),
+  },
+  {
+    id: 'calle-zurita',
+    title: 'Calle Zurita',
+    address: 'Calle de Zurita, Centro, 28012 Madrid',
+    description: 'Una escucha en la calle Zurita, dentro del recorrido de Lavapiés.',
+    lat: 40.4094857,
+    lng: -3.6992224,
+    audioUrl: audioPath('Calle Zurita.m4a'),
+  },
+  {
+    id: 'esgrima-8',
+    title: 'Esgrima 8',
+    address: 'Calle de la Esgrima, 8, Centro, 28012 Madrid',
+    description: 'Una escucha en la calle de la Esgrima, cerca de Lavapiés.',
+    lat: 40.4111161,
+    lng: -3.7044579,
+    audioUrl: audioPath('Esgrima 8.m4a'),
   },
   {
     id: 'argumosa-22',
@@ -207,7 +225,16 @@ const soundPoints = [
     description: 'Una escucha en la esquina de Casino con Embajadores.',
     lat: 40.4067944,
     lng: -3.7046083,
-    audioUrl: audioPath('Esquina Casino Embajadores Juanito.m4a'),
+    audioUrl: audioPath('Esquina Casino Embajadores.m4a'),
+  },
+  {
+    id: 'boqueron-la-falda',
+    title: 'Entre el bar Boquerón y La Falda',
+    address: 'Entre El Boquerón, Calle de Valencia 14, y La Falda, Calle de Miguel Servet 4, Centro, 28012 Madrid',
+    description: 'Una escucha entre el bar El Boquerón y La Falda, junto a la calle de Valencia.',
+    lat: 40.4074444,
+    lng: -3.7006542,
+    audioUrl: audioPath('Entre el bar Boquerón y La falda.m4a'),
   },
 ]
 
